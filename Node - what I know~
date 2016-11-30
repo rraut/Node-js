@@ -1,0 +1,7 @@
+Node 
+- Server side 
+-  we use require to get basic module.
+
+to process request you need 
+	-express(if you are using)
+	-http module , you need server & port to listen, 

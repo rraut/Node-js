@@ -1,0 +1,19 @@
+{
+  "name": "first-app",
+  "version": "1.0.0",
+  "description": "basics",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rraut/Node-js.git"
+  },
+  "author": "renuka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rraut/Node-js/issues"
+  },
+  "homepage": "https://github.com/rraut/Node-js#readme"
+}
