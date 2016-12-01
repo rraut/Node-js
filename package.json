@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rraut/Node-js#readme",
   "dependencies": {
     "ejs": "^2.5.3",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "mongodb":"^2.1.11"
   }
 }
