@@ -2,43 +2,50 @@ var express = require('express');
 var path = require('path');
 var mongo = require('mongodb');
 var assert = require('assert');
-var url = 'mongodb://localhost:27017/resource'
+var url = 'mongodb://localhost:27017/test'
 var app = express();
 var router = express.Router();
+var resultData = [];
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.get("/",function(request,response){
 	console.log(__dirname);
-	response.render('index',{
-		title : "first pagssse",
-		pages : ["home","about"]
-	});
-});
-app.get("/colors/:favoritecolor?",function(request,response){
-	var favoritecolor = request.params.favoritecolor;
-	response.send("your favorite color is " + favoritecolor);
 });
 
-app.get("*",function(request,response){
-	response.send("Sorry ! This page does not exist");
-});
-router.get("/get-data",function(request,response,next){
-	mongo.connct(url,function(){});
-});
-router.poast("/insert",function(request,response,next){
+/*
+router.post("/insert",function(request,response,next){
 	var employeeData = {
 			name : request.body.name,
 			skill : request.body.skill
 				};
-});
+});*/
 mongo.connect(url,function(err,db){
 	assert.equal(null,err);
-	db.collection('employee').insertOne(employeeData,function(err,result){
-		assert.equal(null,'error');
+	console.log("connected");
+	var employeeData = {
+			name : "renuka",
+			skill : "ohhhh"
+				};
+	/*db.collection('test1').insertOne(employeeData,function(err,result){
 		console.log("data inserted");
 		db.close();
+	});*/
+});
+app.get("/get",function(request,response,next){
+	mongo.connect(url,function(err,db){
+		/*var cursor = db.collection('test1').find();
+		cursor.each(function(err,doc){
+			resultData.push(doc);
+		});*/
+		var resd =  db.collection('test1').find().toArray();
+		console.log("resd"+resd[0].toString());
+
+		response.render('home',{data:resultData});
 	});
+});
+app.get("*",function(request,response){
+	response.send("Sorry ! This page does not exist");
 });
 router.post("/delete",function(request,response,next){
 
