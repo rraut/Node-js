@@ -7,6 +7,7 @@ var app = express();
 var router = express.Router();
 var resultData = [];
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.get("/",function(request,response){
@@ -33,15 +34,16 @@ mongo.connect(url,function(err,db){
 	});*/
 });
 app.get("/get",function(request,response,next){
+	resultData.pop();
 	mongo.connect(url,function(err,db){
-		/*var cursor = db.collection('test1').find();
+		var cursor = db.collection('test1').find();
 		cursor.each(function(err,doc){
 			resultData.push(doc);
-		});*/
-		var resd =  db.collection('test1').find().toArray();
-		console.log("resd"+resd[0].toString());
+			console.log(resultData);
+		});
 
 		response.render('home',{data:resultData});
+		response.end();
 	});
 });
 app.get("*",function(request,response){
