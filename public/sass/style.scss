@@ -4,7 +4,17 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
+    @font-face {
+        font-family: "Frutiger55";
+        src: url("../fonts/frutiger-55roman.eot");
+        src: url("../fonts/frutiger-55roman.eot?#iefix") format("embedded-opentype"), 
+            url("../fonts/frutiger-55roman.woff") format("woff"), 
+            url("../fonts/frutiger-55roman.ttf") format("truetype"), 
+            url("../fonts/frutiger-55roman.svg#Frutiger55") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    font-family: "Frutiger55","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: white;
     background-color: black;
 }
@@ -21,9 +31,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 35px;
-    text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
     letter-spacing: 1px;
 }
 
@@ -58,7 +66,7 @@ a {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(white, 0.3);
     text-transform: uppercase;
-    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Frutiger55","Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: black;
     .navbar-toggle {
         padding: 4px 6px;
@@ -233,12 +241,12 @@ a {
 }
 
 .content-section {
-    padding-top: 100px;
+    padding:100px 0;
+    min-height: 100vh;
 }
 
 .download-section {
     width: 100%;
-    padding: 50px 0;
     color: white;
     background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
     background-color: black;
@@ -255,13 +263,6 @@ a {
 }
 
 @media(min-width:767px) {
-    .content-section {
-        padding-top: 250px;
-    }
-
-    .download-section {
-        padding: 100px 0;
-    }
 
     #map {
         height: 400px;
@@ -338,4 +339,38 @@ img::-moz-selection {
 
 body {
     -webkit-tap-highlight-color: rgba(white, 0.2);
+}
+span.strip {
+    border: 1px solid #fff;
+    height: 1px!important;
+    width: 20px;
+    margin: 2px;
+    display: block;
+}
+.search-container{
+ width:300px;
+ margin:0 auto;
+    
+}
+
+body{
+    background:#696464;
+}
+input{
+    color:#888888;
+    padding:5px;
+}
+.search-button   
+{
+    border-radius: 5px;
+    border: none;
+    padding: 7px 10px;
+    outline: none;
+} 
+.custom-label{
+    width: 150px;
+    text-align: left;
+}
+.form-element{
+    margin: 10px 0;
 }
